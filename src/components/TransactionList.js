@@ -40,13 +40,13 @@ function TransactionList({ data, setData }) {
                         <option value="Other">Other</option>
                     </select>) : ''}
 
-                {selectedCategory ? <p className="border border-red-300 h-10 p-1 font-bold bg-red-100 rounded">{`${selectedCategory} Expense: ₹${totalExpense}`}</p> : ''}
+                {selectedCategory ? <p className="border border-red-300 h-10 p-1 font-bold bg-red-100 rounded">{`${selectedCategory} Expense:₹${totalExpense}`}</p> : ''}
             </div>
             {filteredData.length > 0 ? (
                 filteredData.map((item, index) => (
                     <div key={item.id} className="border border-gray-400 flex justify-between items-center mb-1 rounded p-2 bg-white">
                         <div>
-                            <p className={`${item.transaction ==='Income'? 'text-green-500' : 'text-red-400' }`}>{`${item.transaction ==='Income' ? item.transaction: item.category} :₹ ${item.amount}`}</p>
+                            <p className={`${item.transaction ==='Income'? 'text-green-500' : 'text-red-400' }`}>{`${item.transaction ==='Income' ? item.transaction: item.category} : ₹${item.amount}`}</p>
                             <p className="text-sm"> Discription : {item.description}</p>
                             <p className="text-sm text-gray-500 mt-1">Date : {item.date}</p>
                         </div>
