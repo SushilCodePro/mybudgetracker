@@ -46,12 +46,12 @@ function AddTransaction({ data, setData}) {
                             required
                         >
                             <option value="">Select Category</option>
-                            <option value="recharge">Mobile Bill</option>
-                            <option value="groceries">Groceries</option>
-                            <option value="rent">Rent</option>
-                            <option value="utilities">Utilities</option>
-                            <option value="entertainment">Entertainment</option>
-                            <option value="other">Other</option>
+                            <option value="Recharge">Mobile Bill</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Other">Other</option>
                         </select>
                         <input
                             type="number"

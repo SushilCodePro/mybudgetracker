@@ -2,10 +2,7 @@ import {useState } from "react";
 
 function TransactionList({ data, setData }) {
     const [selectedCategory, setSelectedCategory] = useState("");
-    const handleClick = (id) => {
-        let newData = data.filter((item, index) => index !== id)
-        setData(newData);
-    }
+    
 
     const handleFilter = (e) => {
         setSelectedCategory(e.target.value);
@@ -14,9 +11,17 @@ function TransactionList({ data, setData }) {
       const filteredData = selectedCategory
         ? data.filter(item => item.category === selectedCategory)
         : data;
+
+        const totalExpense = filteredData.reduce((sum, item) =>
+            item.transaction === 'expense' ? sum + parseFloat(item.amount) : sum, 0);
+
+        const handleClick = (id) => {
+            let newData = data.filter((item, index) => index !== id)
+            setData(newData);
+        }
     return (
         <div className=" mt-4 p-2 ">
-            <div>
+            <div className="flex space-x-4">
                 <select
                     value={filteredData.category }
                     name="category"
@@ -26,13 +31,14 @@ function TransactionList({ data, setData }) {
                     required
                 >
                     <option value="">Apply Filter</option>
-                    <option value="recharge">Mobile Bill</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="rent">Rent</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="other">Other</option>
+                    <option value="Recharge">Mobile Bill</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
                 </select>
+                {selectedCategory ? <p className="border border-red-300 h-10 p-1 font-bold bg-red-100 rounded">{`${selectedCategory} Expense: ₹${totalExpense}`}</p> :''}
             </div>
             {filteredData.length > 0 ? (
                 filteredData.map((item, index) => (
