@@ -18,7 +18,7 @@ function AddTransaction({data, setData}) {
         console.log('submit succsesfully')
     }
     return (
-        <div className="border border-black p-2">
+        <div className="p-2">
 
             <form className="" onSubmit={handleSubmit}>
                 <div>
@@ -28,7 +28,7 @@ function AddTransaction({data, setData}) {
                             value={formData.transaction || ""}
                             name="transaction"
                             onChange={handleChange}
-                            className="border border-gray-300 w-full p-2 mb-2"
+                            className="border border-gray-300 w-full p-2 mb-2 rounded"
                             required
                         >
                             <option value="">Select Transaction</option>
@@ -40,12 +40,12 @@ function AddTransaction({data, setData}) {
                             value={formData.category || ""}
                             name="category"
                             onChange={handleChange}
-                            className="border border-gray-300 w-full p-2 mb-2"
+                            className="border border-gray-300 w-full p-2 mb-2 rounded"
                             disabled={formData.transaction === 'income'}
                             required
                         >
                             <option value="">Select Category</option>
-                            <option value="salary">Salary</option>
+                            <option value="recharge">Mobile Bill</option>
                             <option value="groceries">Groceries</option>
                             <option value="rent">Rent</option>
                             <option value="utilities">Utilities</option>
@@ -58,7 +58,7 @@ function AddTransaction({data, setData}) {
                             value={formData.amount || ""}
                             onChange={handleChange}
                             placeholder="Amount ..."
-                            className="border border-gray-300 w-full p-2 mb-2"
+                            className="border border-gray-300 w-full p-2 mb-2 rounded"
                             required
                         />
                         <input
@@ -67,7 +67,7 @@ function AddTransaction({data, setData}) {
                             value={formData.date || ""}
                             onChange={handleChange}
                             placeholder="Date ..."
-                            className="border border-gray-300 w-full p-2 mb-2"
+                            className="border border-gray-300 w-full p-2 mb-2 rounded"
                             required
                         />
 
@@ -78,7 +78,7 @@ function AddTransaction({data, setData}) {
                         value={formData.description || ""}
                         onChange={handleChange}
                         placeholder="Description ..."
-                        className="border border-gray-300 w-full p-2 mb-2"
+                        className="border border-gray-300 w-full p-2 mb-2 rounded"
                         required
                     />
                 </div>
