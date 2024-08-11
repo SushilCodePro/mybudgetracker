@@ -10,9 +10,9 @@ function BudgetSummary({ data }) {
             <h1 className="text-center text-green-400 font-bold text-3xl mb-2">Millenniumci</h1>
             <p className="text-center font-bol text-xl mb-2">Budget Tracker</p>
             <div className="0 mb-4 p-2 grid grid-cols-3 gap-2">
-                <p className="border border-gray-400 p-2 text-green-600 font-bold rounded">Income: ₹{totalIncome}</p>
-                <p className="border border-gray-400 p-2 text-red-500 font-bold rounded">Expense: ₹{totalExpense}</p>
-                <p className={`border p-2  border-gray-400 rounded font-bold ${balance < 0 ? 'text-red-500' : ''}`}>Balance: ₹{balance}</p>
+                <p className="border border-gray-400 p-2 text-green-600 font-bold  bg-white rounded">Income: ₹{totalIncome}</p>
+                <p className="border border-gray-400 p-2 text-red-500 font-bold  bg-white rounded">Expense: ₹{totalExpense}</p>
+                <p className={`border p-2  border-gray-400 bg-white rounded font-bold ${balance < 0 ? 'text-red-500' : ''}`}>Balance: ₹{balance}</p>
             </div>
         </div>
 

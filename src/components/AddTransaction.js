@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-function AddTransaction({data, setData}) {
+function AddTransaction({ data, setData}) {
     const [formData, setFormData] = useState({});
-
+    // const [tempData, setTempData] = useState([...data]);
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({...formData, [name]: value })
+        setFormData({ ...formData, [name]: value })
         console.log(formData);
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        setData([...data,formData]);
-        console.log(formData);
+        setData([...data, formData])
+        // setData(tempData);
+        // console.log(formData);
         setFormData({});
         console.log(data);
         console.log('submit succsesfully')
@@ -82,8 +83,11 @@ function AddTransaction({data, setData}) {
                         required
                     />
                 </div>
+                {/* <div className="grid grid-cols-2 gap-10"> */}
+                    <button type="submit" className="bg-blue-500 w-36 p-2 text-white rounded">Add Transaction</button>
+                    
+                {/* </div> */}
 
-                <button type="submit" className="bg-blue-500 p-2 text-white rounded">Add Transaction</button>
 
             </form>
 
