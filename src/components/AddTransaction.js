@@ -5,13 +5,15 @@ function AddTransaction({ data, setData}) {
     // const [tempData, setTempData] = useState([...data]);
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value })
+        setFormData({ ...formData, [name]: value})
         console.log(formData);
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setData([...data, formData])
+        const transactionWithId = { ...formData, id: Date.now() };
+        setData([...data, transactionWithId]);
+        // setData([...data, formData])
         // setData(tempData);
         // console.log(formData);
         setFormData({});
@@ -33,7 +35,7 @@ function AddTransaction({ data, setData}) {
                             required
                         >
                             <option value="">Select Transaction</option>
-                            <option value="income">Income</option>
+                            <option value="Income">Income</option>
                             <option value="expense">Expense</option>
 
                         </select>
@@ -42,7 +44,7 @@ function AddTransaction({ data, setData}) {
                             name="category"
                             onChange={handleChange}
                             className="border border-gray-300 w-full p-2 mb-2 rounded"
-                            disabled={formData.transaction === 'income'}
+                            disabled={formData.transaction === 'Income'}
                             required
                         >
                             <option value="">Select Category</option>

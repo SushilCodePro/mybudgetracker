@@ -1,6 +1,6 @@
 function BudgetSummary({ data }) {
     const totalIncome = data.reduce((sum, item) =>
-        item.transaction === 'income' ? sum + parseFloat(item.amount) : sum, 0);
+        item.transaction === 'Income' ? sum + parseFloat(item.amount) : sum, 0);
     const totalExpense = data.reduce((sum, item) =>
         item.transaction === 'expense' ? sum + parseFloat(item.amount) : sum, 0);
     const balance = (totalIncome - totalExpense).toFixed(2);
