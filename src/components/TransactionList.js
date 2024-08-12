@@ -19,6 +19,32 @@ function TransactionList({ data, setData }) {
         let newData = data.filter((item) => item.id !== id)
         setData(newData);
     }
+
+    const handleExportCSV = () => {
+        const csvRows = [];
+
+        
+        const headers = Object.keys(data[0]);
+        csvRows.push(headers.join(','));
+
+        
+        data.forEach(item => {
+            const values = headers.map(header => item[header]);
+            csvRows.push(values.join(','));
+        });
+
+        
+        const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', 'transactions.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
     return (
         <div className=" mt-4 p-2 ">
             <div className="flex space-x-4">
@@ -41,6 +67,7 @@ function TransactionList({ data, setData }) {
                     </select>) : ''}
 
                 {selectedCategory ? <p className="border border-red-300 h-10 p-1 font-bold bg-red-100 rounded">{`${selectedCategory} Expense:₹${totalExpense}`}</p> : ''}
+                {data.length > 0 ? <button onClick={handleExportCSV} className="bg-green-500  border-gray-400 h-10 p-1 text-white rounded">Export as CSV</button> :''}
             </div>
             {filteredData.length > 0 ? (
                 filteredData.map((item, index) => (
