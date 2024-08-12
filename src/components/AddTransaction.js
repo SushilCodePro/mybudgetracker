@@ -21,7 +21,7 @@ function AddTransaction({ data, setData}) {
         console.log('submit succsesfully')
     }
     return (
-        <div className="p-2">
+        <div className="p-2 w-full border border-gray-400 sm:col-span-3 rounded">
 
             <form className="" onSubmit={handleSubmit}>
                 <div>
