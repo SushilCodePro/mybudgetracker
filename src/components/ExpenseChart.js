@@ -33,9 +33,11 @@ function ExpenseChart({ data }) {
     return (
         <div className=" ml-2 mr-4 sm:col-span-1 flex flex-col items-center p-1 overflow-hidden border border-gray-400 rounded">
             <h2 className="text-center text-lg">Expenses by Category</h2>
-            <div className="h-60 flex  justify-center items-center">
+            {expenseData.length>0  ? 
+            (<div className="h-60 flex  justify-center items-center">
                 <Pie data={chartData} />
-            </div>
+            </div>) :(<p className='text-green-400 mt-10'>Expense is Nothing</p>)}
+            
         </div>
     );
 }
