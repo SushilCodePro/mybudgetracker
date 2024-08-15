@@ -7,7 +7,7 @@ function BudgetSummary({ data }) {
 
     return (
         <div>
-            <h1 className="text-center text-green-400 font-bold text-3xl mb-2">Millenniumci</h1>
+            <h1 className="text-center text-green-400 font-bold text-3xl mb-2">SushilCodeProS</h1>
             <p className="text-center font-bol text-xl mb-2">Budget Tracker</p>
             <div className="0 mb-4 p-2 grid grid-cols-3 gap-2">
                 <p className="border border-gray-400 p-2 text-green-600 font-bold  bg-white rounded">Income: ₹{totalIncome}</p>
